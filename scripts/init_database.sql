@@ -24,8 +24,8 @@ GO
 -- Drop and recreate the 'DataWarehouse' database
 IF EXISTS (SELECT 1 FROM sys.databases WHERE name = 'DataWarehouse')
 BEGIN
-    ALTER DATABASE DataWarehouse SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-    DROP DATABASE DataWarehouse;
+    ALTER DATABASE DataWarehouse SET SINGLE_USER WITH ROLLBACK IMMEDIATE; --Allows only one user connection ,Basically locks the database
+    DROP DATABASE DataWarehouse; --Immediately kicks out all active users and Cancels (rolls back) any running queries
 END;
 GO
 
